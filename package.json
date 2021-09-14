@@ -1,6 +1,6 @@
 {
   "name": "codeboss-angular-libs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,8 +25,7 @@
     "@angular/router": "~12.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "@codeboss/mat-generic-table": "file:projects\\@codeboss/mat-generic-table"
+    "zone.js": "~0.11.4"
     },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.5",

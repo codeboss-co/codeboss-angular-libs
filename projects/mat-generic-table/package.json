@@ -1,12 +1,12 @@
 {
   "name": "@codeboss/mat-generic-table",
   "version": "0.0.1",
-  "description": "Generic Material Table",
   "publishConfig": {
     "access": "public"
   },
+  "description": "1st Package testing",
   "scripts": {
-    "build": "ng build @codeboss/mat-generic-table"
+    "build": "ng build mat-generic-table"
   },
   "peerDependencies": {
     "@angular/common": "^12.2.0",

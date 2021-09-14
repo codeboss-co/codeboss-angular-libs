@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../../coverage/codeboss/mat-generic-table'),
+      dir: require('path').join(__dirname, '../../coverage/mat-generic-table'),
       subdir: '.',
       reporters: [
         { type: 'html' },

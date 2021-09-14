@@ -6,6 +6,10 @@
       "@codeboss/mat-generic-table": [
         "dist/codeboss/mat-generic-table/codeboss-mat-generic-table",
         "dist/codeboss/mat-generic-table"
+      ],
+      "mat-generic-table": [
+        "dist/mat-generic-table/mat-generic-table",
+        "dist/mat-generic-table"
       ]
     },
     "baseUrl": "./",

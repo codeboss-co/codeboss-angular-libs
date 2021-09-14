@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@codeboss/mat-generic-table": {
+    "mat-generic-table": {
       "projectType": "library",
-      "root": "projects/codeboss/mat-generic-table",
-      "sourceRoot": "projects/codeboss/mat-generic-table/src",
+      "root": "projects/mat-generic-table",
+      "sourceRoot": "projects/mat-generic-table/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/codeboss/mat-generic-table/ng-package.json"
+            "project": "projects/mat-generic-table/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/codeboss/mat-generic-table/tsconfig.lib.prod.json"
+              "tsConfig": "projects/mat-generic-table/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/codeboss/mat-generic-table/tsconfig.lib.json"
+              "tsConfig": "projects/mat-generic-table/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,13 +27,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/codeboss/mat-generic-table/src/test.ts",
-            "tsConfig": "projects/codeboss/mat-generic-table/tsconfig.spec.json",
-            "karmaConfig": "projects/codeboss/mat-generic-table/karma.conf.js"
+            "main": "projects/mat-generic-table/src/test.ts",
+            "tsConfig": "projects/mat-generic-table/tsconfig.spec.json",
+            "karmaConfig": "projects/mat-generic-table/karma.conf.js"
           }
         }
       }
     }
+   
   },
-  "defaultProject": "@codeboss/mat-generic-table"
+  "defaultProject": "mat-generic-table"
 }

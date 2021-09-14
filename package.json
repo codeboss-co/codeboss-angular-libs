@@ -6,9 +6,14 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lerna:build": "lerna run build --concurrency=1"
   },
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codeboss-co/codeboss-angular-libs.git"
+  },
   "dependencies": {
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
@@ -23,6 +28,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~12.2.5",
     "@angular/cli": "~12.2.5",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
@@ -34,6 +40,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "lerna": "^4.0.0",
+    "ng-packagr": "^12.1.1",
     "typescript": "~4.3.5"
   }
 }

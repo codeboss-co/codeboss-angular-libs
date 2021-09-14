@@ -1,0 +1,54 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v1
+
+      - name: ⚙️ Configure CI Git User
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⚙️ Set Current Version
+        run: |
+          CURRENT_VERSION=$(node -p 'require("./lerna.json").version')
+          echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+          echo $CURRENT_VERSION # {{ env.CURRENT_VERSION }}
+
+      - name: 🛒 Checkout and pull branch
+        run: git checkout "${GITHUB_REF:11}" && git pull
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: lerna bootstrap
+
+      - name: ⏭ Publish Release package
+        if: endsWith(github.ref, '/master')
+        run: lerna version --conventional-commits --exact --yes && lerna publish --yes --no-verify-access
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: ⏭ Publish Pre-release package
+        if: endsWith(github.ref, '/develop')
+        run: lerna publish --cd-version=prerelease --pre-dist-tag prerelease --preid=alpha.$GITHUB_RUN_NUMBER --exact --yes --no-verify-access
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}          

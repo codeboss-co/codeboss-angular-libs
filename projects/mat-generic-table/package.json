@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "1st Package testing",
+  "description": "Material Generic Table",
   "scripts": {
     "build": "ng build mat-generic-table"
   },

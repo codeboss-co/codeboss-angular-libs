@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --project playground-app -o",
     "build": "ng build",
+    "build:logger": "ng build --project=logger-lib",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lerna:build": "lerna run build --concurrency=1"

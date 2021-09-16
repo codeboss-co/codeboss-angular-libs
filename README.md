@@ -14,8 +14,12 @@ https://medium.com/angular-in-depth/release-management-in-angular-with-lerna-21b
 
 ## Create Library
 
-> ng g lib @codeboss-button
+> ng g lib button
 
 ## Building
 
-> ng build --project @codeboss/mat-generic-table
+> ng build --project mat-generic-table
+
+## Running
+
+> ng serve --project playground-app

@@ -2,16 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "@codeboss/mat-generic-table": [
-        "dist/codeboss/mat-generic-table/codeboss-mat-generic-table",
-        "dist/codeboss/mat-generic-table"
-      ],
-      "mat-generic-table": [
-        "dist/mat-generic-table/mat-generic-table",
-        "dist/mat-generic-table"
-      ]
-    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -29,7 +19,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@my/logger-lib": [
+        "projects/logger-lib/src/public-api.ts"
+        //"dist/logger-lib"
+      ],
+      "@codeboss/mat-generic-table": [
+        "dist/mat-generic-table"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

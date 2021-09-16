@@ -16,6 +16,14 @@ https://medium.com/angular-in-depth/release-management-in-angular-with-lerna-21b
 
 > ng g lib button
 
+Add to library `package.json`:
+
+```
+  "publishConfig": {
+    "access": "public"
+  }
+```
+
 ## Building
 
 > ng build --project mat-generic-table

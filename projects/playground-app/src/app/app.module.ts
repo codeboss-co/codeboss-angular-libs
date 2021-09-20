@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoggerModule } from '@my/logger-lib';
+import { LoggerModule } from '@codeboss/logger-lib';
 
 @NgModule({
   declarations: [

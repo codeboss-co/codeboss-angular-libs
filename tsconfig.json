@@ -21,7 +21,7 @@
       "dom"
     ],
     "paths": {
-      "@my/logger-lib": [
+      "@codeboss/logger-lib": [
         "projects/logger-lib/src/public-api.ts"
         //"dist/logger-lib"
       ],

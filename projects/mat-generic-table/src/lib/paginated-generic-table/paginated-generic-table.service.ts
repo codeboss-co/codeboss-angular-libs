@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IPaginatedDataSource, PaginatedDataSource } from '@shared/data/paginated.data-source';
-import { PagedResult, PaginatedEndpoint, Sort } from '@shared/data/pagination.models';
+import { PagedResult, PaginatedEndpoint, Sort } from '../pagination.models';
 import { Observable } from 'rxjs';
+import { IPaginatedDataSource, PaginatedDataSource } from '../paginated.data-source';
 
 export interface IPaginatedTableService extends IPaginatedDataSource
 {
-    readonly dataSource: IPaginatedDataSource;
+    readonly dataSource: IPaginatedDataSource | null;
 }
 
 @Injectable()
@@ -13,6 +13,7 @@ export class PaginatedGeneralTableService<TModel, TQuery> implements IPaginatedT
 
     public readonly dataSource: PaginatedDataSource<TModel, TQuery> | null;
 
+    // @ts-ignore
     page$: Observable<PagedResult<TModel>>;
 
     constructor(
@@ -24,7 +25,8 @@ export class PaginatedGeneralTableService<TModel, TQuery> implements IPaginatedT
             endpoint, initialSort, initialQuery
         );
 
-        this.page$ = this.dataSource.page$;
+        // @ts-ignore
+      this.page$ = this.dataSource.page$;
     }
 
     queryBy(query: Partial<TQuery>): void

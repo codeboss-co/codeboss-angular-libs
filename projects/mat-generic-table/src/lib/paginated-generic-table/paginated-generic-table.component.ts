@@ -9,29 +9,29 @@ import {
     OnChanges,
     Output,
     SimpleChanges,
-    ViewChild, ViewEncapsulation
+    ViewChild
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { PAGING_SERVICE, TableBtn, TableColumn, TableQuery } from '..';
-import { PagedResult, Sort } from '@shared/data/pagination.models';
+import { PAGING_SERVICE, TableBtn, TableColumn, TableQuery } from '../models';
 import { takeUntil, tap } from 'rxjs/operators';
-import { IPaginatedTableService } from '@ui/components/general-table/paginated-general-table/paginated-general-table.service';
-import { fuseAnimations } from '@fuse/animations';
+//import { fuseAnimations } from '@fuse/animations';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Subject } from 'rxjs';
+
+import { IPaginatedTableService } from './paginated-generic-table.service';
+import { PagedResult } from '../pagination.models';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
  */
 @Component( {
-    selector: 'paginated-general-table',
-    styleUrls: ['paginated-general-table.component.css'],
-    templateUrl: 'paginated-general-table.component.html',
+    selector: 'paginated-generic-table',
+    templateUrl: './paginated-generic-table.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    animations   : fuseAnimations
+    //animations   : fuseAnimations
 } )
-export class PaginatedGeneralTableComponent implements OnChanges, AfterViewInit, AfterContentInit
+export class PaginatedGenericTableComponent implements OnChanges, AfterViewInit, AfterContentInit
 {
     @Input() debug: boolean = false;
 
@@ -40,7 +40,7 @@ export class PaginatedGeneralTableComponent implements OnChanges, AfterViewInit,
     @Input() selectable: boolean = false;
     @Input() filter: boolean = false;
     @Input() filterPlaceholder: string = 'Filter results';
-    @Input() footer: string = null;
+    @Input() footer: string | null = null;
     @Input() pagination: number[] = [];
     @Input() pageSize: number = 10;
     @Output() filteredData = new EventEmitter<any[]>();
@@ -53,7 +53,7 @@ export class PaginatedGeneralTableComponent implements OnChanges, AfterViewInit,
     @ViewChild( MatPaginator, { static: true } ) paginator: MatPaginator;
     @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
-    displayedColumns: string[];
+    displayedColumns: string[] = [];
 
     page: PagedResult<any> = {totalResults: 0, totalPages: 0, data: []};
     selection = new SelectionModel<string>(true, []);
@@ -65,7 +65,8 @@ export class PaginatedGeneralTableComponent implements OnChanges, AfterViewInit,
 
     constructor(@Inject(PAGING_SERVICE) public service: IPaginatedTableService)
     {
-        this.service.page$
+
+      this.service.page$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(page => this.page = page);
     }

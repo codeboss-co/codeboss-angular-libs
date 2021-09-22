@@ -14,7 +14,7 @@ https://medium.com/angular-in-depth/release-management-in-angular-with-lerna-21b
 
 ## Create Library
 
-> ng g lib button
+> ng g lib button-lib
 
 Add to library `package.json`:
 
@@ -28,6 +28,6 @@ Add to library `package.json`:
 
 > ng build --project mat-generic-table
 
-## Running
+## Running playground demo
 
 > ng serve --project playground-app

@@ -26,7 +26,13 @@ Add to library `package.json`:
 
 ## Building
 
+Build specific
+
 > ng build --project mat-generic-table
+
+Build all libraries
+
+> lerna run build
 
 ## Running playground demo
 

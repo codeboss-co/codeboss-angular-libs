@@ -5,15 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoggerModule } from '@codeboss/logger-lib';
-//import { GenericTableModule } from '@codeboss/mat-generic-table';
-//import { SimpleExampleGenericTableComponent } from './mat-generic-table/simple-example-generic-table.component';
+import { GenericTableModule } from '@codeboss/mat-generic-table';
+import { SimpleExampleGenericTableComponent } from './mat-generic-table/simple-example-generic-table.component';
 
 
 @NgModule( {
     declarations: [
         AppComponent,
 
-   //    SimpleExampleGenericTableComponent
+       SimpleExampleGenericTableComponent
     ],
     imports: [
         BrowserModule,
@@ -21,7 +21,7 @@ import { LoggerModule } from '@codeboss/logger-lib';
 
         LoggerModule.forRoot( { enableDebug: true } ),
 
-      //  GenericTableModule
+        GenericTableModule
     ],
     providers: [],
     bootstrap: [AppComponent]

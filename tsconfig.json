@@ -21,6 +21,7 @@
             "dom"
         ],
         "paths": {
+            "@angular/*": ["./node_modules/@angular/*"], // https://github.com/angular/angular/issues/25813#issuecomment-584866010
             "@codeboss/logger-lib": [
                 "projects/logger-lib/src/public-api.ts"
                 //"dist/logger-lib"

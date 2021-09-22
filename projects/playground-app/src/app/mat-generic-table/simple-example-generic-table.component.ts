@@ -5,7 +5,7 @@ import { createNewUserData } from './mock/functions/mock-data';
 
 
 @Component({
-    selector     : 'simple-example-generic-table.component',
+    selector     : 'simple-example-generic-table',
     templateUrl  : './simple-example-generic-table.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush

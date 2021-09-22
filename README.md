@@ -36,4 +36,6 @@ Build all libraries
 
 ## Running playground demo
 
+> npm i
+
 > ng serve --project playground-app

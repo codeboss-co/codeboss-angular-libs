@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoggerModule } from '@codeboss/logger-lib';
 import { GenericTableModule } from '@codeboss/mat-generic-table';
 import { SimpleExampleGenericTableComponent } from './mat-generic-table/simple-example-generic-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule( {
@@ -17,6 +18,7 @@ import { SimpleExampleGenericTableComponent } from './mat-generic-table/simple-e
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
 
         LoggerModule.forRoot( { enableDebug: true } ),
